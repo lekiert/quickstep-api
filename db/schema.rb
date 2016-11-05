@@ -12,15 +12,18 @@
 
 ActiveRecord::Schema.define(version: 20161105112345) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "excercises", force: :cascade do |t|
     t.string   "code",       limit: 16
-    t.integer  "status",     limit: 1
+    t.integer  "status",     limit: 2
     t.string   "name"
     t.string   "command"
-    t.integer  "type",       limit: 1
-    t.text     "data"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "type",       limit: 2
+    t.jsonb    "data",                  default: "{}", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161105112345) do
     t.integer  "status"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
 end

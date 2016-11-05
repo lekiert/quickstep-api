@@ -6,7 +6,7 @@ class CreateExcercises < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :command
       t.integer :type, :limit => 1
-      t.text :data
+      t.jsonb :data, null: false, default: '{}'
 
       t.timestamps
     end

@@ -23,6 +23,7 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'jsonapi-resources', '~> 0.7.1.beta1'
 gem 'jwt'
 gem 'knock'
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
