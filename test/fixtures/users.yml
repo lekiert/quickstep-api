@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   first_name: John
-#   last_name: Doe
-#   email: john@doe.com
-#   password: secret1
-#   role: STUDENT
-#   status: 1
-#
-# two:
-#   first_name: Jan
-#   last_name: Kowalski
-#   email: jan@kowalski.com
-#   password: sekret1
-#   role: TEACHER
-#   status: 1
+one:
+  first_name: John
+  last_name: Doe
+  email: john@doe.com
+  password_digest: <%= BCrypt::Password.create("secret", cost: 4) %>
+  role: STUDENT
+  status: 1
+
+two:
+  first_name: Jan
+  last_name: Kowalski
+  email: jan@kowalski.com
+  password_digest: <%= BCrypt::Password.create("sekret", cost: 4) %>
+  role: TEACHER
+  status: 1
