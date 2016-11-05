@@ -18,13 +18,13 @@ class ExcercisesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should respond success' do
-    get '/excercises', headers: authenticated_header, as: 'json'
+    get '/excercises', headers: authenticated_header
 
     assert_response :success
   end
 
   test 'should respond unauthorized' do
-    get '/excercises', headers: unauthenticated_header, as: 'json'
+    get '/excercises', headers: unauthenticated_header
 
     assert_response :unauthorized
   end
