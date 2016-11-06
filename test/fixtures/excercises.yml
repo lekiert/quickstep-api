@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  code: MyString
-  status: 
-  name: MyString
-  command: MyString
-  type: 
-  data: MyText
-
-two:
-  code: MyString
-  status: 
-  name: MyString
-  command: MyString
-  type: 
-  data: MyText
+# one:
+#   code: MyString
+#   status:
+#   name: MyString
+#   command: MyString
+#   type:
+#   data: MyText
+#
+# two:
+#   code: MyString
+#   status:
+#   name: MyString
+#   command: MyString
+#   type:
+#   data: MyText
