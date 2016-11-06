@@ -12,3 +12,5 @@ Level.create(name: 'Advanced')
 
 User.create(first_name: 'Test', last_name: 'User',
             email: 'test@email.com', password: 'secret')
+User.create(first_name: 'Second', last_name: 'User',
+            email: 'test2@email.com', password: 'secret2')
