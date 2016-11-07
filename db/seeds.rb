@@ -10,16 +10,20 @@ l1 = Level.create(name: 'Beginner')
 l2 = Level.create(name: 'Intermediate')
 l3 = Level.create(name: 'Advanced')
 
-User.create(first_name: 'Test', last_name: 'User',
+u1 = User.create(first_name: 'Test', last_name: 'User',
             email: 'test@email.com', password: 'secret')
-User.create(first_name: 'Second', last_name: 'User',
+u2 = User.create(first_name: 'Second', last_name: 'User',
             email: 'test2@email.com', password: 'secret2')
 
-l1.courses.create(name: 'Beginner test 1', description: 'Lorem ipsum')
+course = Course.create(name: 'Beginner test 1', description: 'Lorem ipsum')
+
+l1.courses << course
 l1.courses.create(name: 'Beginner test 2', description: 'Dolor sit amet')
 
-l1.courses.create(name: 'Intermediate test 1', description: 'Lorem ipsum')
-l1.courses.create(name: 'Intermediate test 2', description: 'Dolor sit amet')
+l2.courses.create(name: 'Intermediate test 1', description: 'Lorem ipsum')
+l2.courses.create(name: 'Intermediate test 2', description: 'Dolor sit amet')
 
-l1.courses.create(name: 'Advanced test 1', description: 'Lorem ipsum')
-l1.courses.create(name: 'Advanced test 2', description: 'Dolor sit amet')
+l3.courses.create(name: 'Advanced test 1', description: 'Lorem ipsum')
+l3.courses.create(name: 'Advanced test 2', description: 'Dolor sit amet')
+
+course.users << u1
