@@ -7,8 +7,6 @@ class PasswordUpdate
     new_password = params[:new_password]
     user = User.find(user_id)
 
-    puts(password)
-
     if (user.authenticate(password))
       user.password = new_password
 

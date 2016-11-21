@@ -18,7 +18,7 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should respond success' do
     get '/courses', headers: authenticated_header
-
+    
     assert_response :success
   end
 

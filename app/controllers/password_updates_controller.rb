@@ -5,7 +5,7 @@ class PasswordUpdatesController < ApplicationResourceController
   def create
     parameters = get_parameters
     PasswordUpdate.update_user_password({
-        :user_id => parameters[:'user-id'],
+        :user_id => params[:user_id],
         :old_password => parameters[:'old-password'],
         :new_password => parameters[:'new-password']
     })
