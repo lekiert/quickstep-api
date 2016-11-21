@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   match 'user_token' => 'user_token#create', via: :options
   jsonapi_resources :excercises
   jsonapi_resources :courses
+  jsonapi_resources :tests
   jsonapi_resources :users
   jsonapi_resources :users do
     jsonapi_resources :password_updates

@@ -1,0 +1,2 @@
+class CoursesTest < ApplicationRecord
+end
