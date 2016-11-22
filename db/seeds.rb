@@ -11,7 +11,7 @@ l2 = Level.create(name: 'Intermediate')
 l3 = Level.create(name: 'Advanced')
 
 u1 = User.create(first_name: 'Test', last_name: 'User',
-            email: 'user@quickstep.dev', password: 'secret', role: 'USER')
+            email: 'user@quickstep.dev', password: 'secret', role: 'STUDENT')
 u2 = User.create(first_name: 'Test', last_name: 'Teacher',
             email: 'teacher@quickstep.dev', password: 'secret', role: 'TEACHER')
 u3 = User.create(first_name: 'Test', last_name: 'Supervisor',
