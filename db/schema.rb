@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161121214519) do
+ActiveRecord::Schema.define(version: 20161121230331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,14 +40,16 @@ ActiveRecord::Schema.define(version: 20161121214519) do
   end
 
   create_table "excercises", force: :cascade do |t|
-    t.string   "code",       limit: 16
-    t.integer  "status",     limit: 2
+    t.string   "code",           limit: 16
+    t.string   "excercise_type", limit: 32
+    t.integer  "status",         limit: 2
     t.string   "name"
     t.string   "command"
-    t.integer  "type",       limit: 2
-    t.jsonb    "data",                  default: "{}", null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.jsonb    "data",                      default: "{}", null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "test_id"
+    t.index ["code", "status", "name", "test_id"], name: "index_excercises_on_code_and_status_and_name_and_test_id", using: :btree
   end
 
   create_table "levels", force: :cascade do |t|

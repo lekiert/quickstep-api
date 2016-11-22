@@ -42,3 +42,6 @@ course.tests << t2
 course2.tests << t2
 course2.tests << t3
 course2.tests << t4
+
+t1.excercises.create(code: 'T1_1_1', name: 'Test 1 excercise', command: 'Do something', status: 1, excercise_type: 'TEST')
+t1.excercises.create(code: 'T1_1_2', name: 'Test 2 excercise', command: 'Do something else', status: 1, excercise_type: 'TEST')
