@@ -11,9 +11,13 @@ l2 = Level.create(name: 'Intermediate')
 l3 = Level.create(name: 'Advanced')
 
 u1 = User.create(first_name: 'Test', last_name: 'User',
-            email: 'test@email.com', password: 'secret')
-u2 = User.create(first_name: 'Second', last_name: 'User',
-            email: 'test2@email.com', password: 'secret2')
+            email: 'user@quickstep.dev', password: 'secret', role: 'USER')
+u2 = User.create(first_name: 'Test', last_name: 'Teacher',
+            email: 'teacher@quickstep.dev', password: 'secret', role: 'TEACHER')
+u3 = User.create(first_name: 'Test', last_name: 'Supervisor',
+            email: 'supervisor@quickstep.dev', password: 'secret', role: 'SUPERVISOR')
+u4 = User.create(first_name: 'Test', last_name: 'Admin',
+            email: 'admin@quickstep.dev', password: 'secret', role: 'ADMIN')
 
 course = Course.create(name: 'Beginner course 1', description: 'Lorem ipsum')
 course2 = Course.create(name: 'Beginner course 3', description: 'Inny tekst')
