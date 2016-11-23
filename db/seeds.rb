@@ -30,9 +30,15 @@ st7 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.
 st8 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
             email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
 
-
-teacher = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+teacher1 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
             email: 'teacher@quickstep.dev', password: 'secret', role: 'TEACHER')
+teacher2 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+            email: 'teacher2@quickstep.dev', password: 'secret', role: 'TEACHER')
+teacher3 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+            email: 'teacher3@quickstep.dev', password: 'secret', role: 'TEACHER')
+teacher4 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
+            email: 'teacher4@quickstep.dev', password: 'secret', role: 'TEACHER')
+
 u3 = User.create(first_name: 'Test', last_name: 'Supervisor',
             email: 'supervisor@quickstep.dev', password: 'secret', role: 'SUPERVISOR')
 u4 = User.create(first_name: 'Test', last_name: 'Admin',

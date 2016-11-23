@@ -19,7 +19,7 @@ class Teacher < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true, on: :update
 
   has_and_belongs_to_many :courses
-  has_and_belongs_to_many :groups, :foreign_key => :user_id
+  has_and_belongs_to_many :groups, :join_table => :groups_teachers, :foreign_key => :user_id
 
   def is_admin?
     false
