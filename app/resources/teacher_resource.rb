@@ -1,8 +1,9 @@
-class UserResource < JSONAPI::Resource
+class TeacherResource < JSONAPI::Resource
   attributes :first_name, :last_name, :role, :email, :created_at, :password
 
   relationship :courses, to: :many
   relationship :password_updates, to: :many
+  relationship :groups, to: :many
 
   filter :search, apply: ->(records, value, _options) {
     query = value[0]
