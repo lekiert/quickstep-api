@@ -2,10 +2,14 @@ require 'test_helper'
 
 class ExcerciseTest < ActiveSupport::TestCase
   def setup
+    @test = Test.create(name: "Test",
+                     description: "test description",
+                     code: "A")
     @excercise = Excercise.new(name: "Test",
-                     command: "test command",
-                     code: "A",
-                     status: 1)
+                                      command: "test command",
+                                      code: "A",
+                                      status: 1)
+    @test.excercises << @excercise
   end
 
   test "should be valid" do
