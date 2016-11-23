@@ -10,14 +10,49 @@ l1 = Level.create(name: 'Beginner')
 l2 = Level.create(name: 'Intermediate')
 l3 = Level.create(name: 'Advanced')
 
-u1 = User.create(first_name: 'Test', last_name: 'User',
-            email: 'user@quickstep.dev', password: 'secret', role: 'STUDENT')
-u2 = User.create(first_name: 'Test', last_name: 'Teacher',
+u1 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: 'student@quickstep.dev', password: 'secret', role: 'STUDENT')
+
+st1 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+st2 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+st3 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+st4 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+st5 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+st6 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+st7 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+st8 = User.create(first_name: Faker::Name.first_name   , last_name: Faker::Name.last_name,
+            email: Faker::Internet.email, password: 'secret', role: 'STUDENT')
+
+
+teacher = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,
             email: 'teacher@quickstep.dev', password: 'secret', role: 'TEACHER')
 u3 = User.create(first_name: 'Test', last_name: 'Supervisor',
             email: 'supervisor@quickstep.dev', password: 'secret', role: 'SUPERVISOR')
 u4 = User.create(first_name: 'Test', last_name: 'Admin',
             email: 'admin@quickstep.dev', password: 'secret', role: 'ADMIN')
+
+g1 = Group.create(name: 'Pierwsza grupa', description: 'Opis pierwszej grupy')
+g2 = Group.create(name: 'Druga grupa', description: 'Opis drugiej grupy')
+
+g1.users << st1
+g1.users << st2
+g1.users << st3
+g1.users << st4
+g1.users << st5
+
+g2.users << st6
+g2.users << st7
+g2.users << st8
+g2.users << st1
+g2.users << st2
+g2.users << st5
 
 course = Course.create(name: 'Beginner course 1', description: 'Lorem ipsum')
 course2 = Course.create(name: 'Beginner course 3', description: 'Inny tekst')
@@ -34,6 +69,8 @@ l3.courses.create(name: 'Advanced course 2', description: 'Dolor sit amet')
 
 course.users << u1
 course2.users << u1
+
+
 
 t1 = Test.create(code: 'T1_1', name: 'Test 1', description: 'Test 1 description')
 t2 = Test.create(code: 'T1_2', name: 'Test 2', description: 'Test 2 description')

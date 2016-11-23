@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  resources :groups
   post 'user_token' => 'user_token#create'
   match 'user_token' => 'user_token#create', via: :options
   jsonapi_resources :excercises
   jsonapi_resources :courses
   jsonapi_resources :tests
   jsonapi_resources :users
+  jsonapi_resources :groups
+  jsonapi_resources :groups do
+    jsonapi_relationships
+  end
   jsonapi_resources :users do
     jsonapi_resources :password_updates
   end
