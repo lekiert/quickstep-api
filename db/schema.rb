@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123212834) do
+ActiveRecord::Schema.define(version: 20161123231036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,15 @@ ActiveRecord::Schema.define(version: 20161123212834) do
     t.index ["name", "level_id"], name: "index_tests_on_name_and_level_id", using: :btree
   end
 
+  create_table "user_logs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "action_code"
+    t.jsonb    "meta"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_user_logs_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -113,4 +122,5 @@ ActiveRecord::Schema.define(version: 20161123212834) do
   add_foreign_key "groups_users", "groups"
   add_foreign_key "groups_users", "users"
   add_foreign_key "tests", "levels"
+  add_foreign_key "user_logs", "users"
 end
