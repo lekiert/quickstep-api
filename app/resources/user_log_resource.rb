@@ -1,9 +1,13 @@
 class UserLogResource < JSONAPI::Resource
-  attributes :user_id, :action_code, :additional_data
+  attributes :user, :action_code, :additional_data, :created_at
+
+  relationship :user, to: :one
 
   def additional_data
     @model.meta
   end
 
-  relationship :users, to: :one
+  def created_at
+    @model.created_at.strftime("%H:%S, %d.%m.%Y ")
+  end
 end
