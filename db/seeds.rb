@@ -62,9 +62,11 @@ g2.users << st5
 
 course = Course.create(name: 'Beginner course 1', description: 'Lorem ipsum')
 course2 = Course.create(name: 'Beginner course 3', description: 'Inny tekst')
+course3 = Course.create(name: 'Beginner course 4', description: 'Jeszcze inny tekst')
 
 l1.courses << course
 l1.courses << course2
+l3.courses << course3
 l1.courses.create(name: 'Beginner course 2', description: 'Dolor sit amet')
 
 l2.courses.create(name: 'Intermediate course 1', description: 'Lorem ipsum')
@@ -90,5 +92,16 @@ course2.tests << t2
 course2.tests << t3
 course2.tests << t4
 
-t1.excercises.create(code: 'T1_1_1', name: 'Test 1 excercise', command: 'Do something', status: 1, excercise_type: 'TEST')
-t1.excercises.create(code: 'T1_1_2', name: 'Test 2 excercise', command: 'Do something else', status: 1, excercise_type: 'TEST')
+# t1.excercises.create(code: 'T1_1_1',
+#                      name: 'Test 1 excercise',
+#                      command: 'Do something',
+#                      status: 1,
+#                      excercise_type: 'BRACKETS',
+#                      data: '{"sentences":["This __ a test sentence. This __ a second field.","Ala __ kota. Kot __ ale. Nie __ kota."]}')
+#
+# t1.excercises.create(code: 'T1_1_2',
+#                      name: 'Test 2 excercise',
+#                      command: 'Do something else2',
+#                      status: 1,
+#                      excercise_type: 'TEST',
+#                      data: '{"sentences":["This __ a test sentence.","Ala __ kota."]}')

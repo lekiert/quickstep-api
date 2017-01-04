@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123231036) do
+ActiveRecord::Schema.define(version: 20170104172627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20161123231036) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.integer  "test_id"
+    t.string   "excercise_type"
+    t.jsonb    "answers"
     t.index ["code", "status", "name", "test_id"], name: "index_excercises_on_code_and_status_and_name_and_test_id", using: :btree
   end
 

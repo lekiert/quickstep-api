@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   jsonapi_resources :teachers
   jsonapi_resources :groups
   jsonapi_resources :user_logs
+  jsonapi_resources :tests do
+    jsonapi_relationships
+    jsonapi_resources :excercises
+  end
   jsonapi_resources :groups do
     jsonapi_relationships
   end
