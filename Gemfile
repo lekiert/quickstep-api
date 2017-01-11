@@ -24,7 +24,6 @@ gem 'jsonapi-resources', '~> 0.7.1.beta1'
 gem 'jwt'
 gem 'knock'
 gem 'pg'
-gem 'rack-cors'
 gem 'faker'
 
 group :development, :test do
