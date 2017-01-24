@@ -8,4 +8,6 @@ class Excercise < ApplicationRecord
                                      less_than_or_equal_to: 1}
 
   belongs_to :test
+
+  has_and_belongs_to_many :storage_files
 end
