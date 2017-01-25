@@ -1,0 +1,2 @@
+class AnswersController < ApplicationResourceController
+end

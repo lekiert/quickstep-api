@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   match 'user_token' => 'user_token#create', via: :options
   jsonapi_resources :excercises
   jsonapi_resources :courses
+  jsonapi_resources :answers
   jsonapi_resources :tests
   jsonapi_resources :users
   jsonapi_resources :teachers
@@ -13,12 +14,14 @@ Rails.application.routes.draw do
   jsonapi_resources :tests do
     jsonapi_relationships
     jsonapi_resources :excercises
+    jsonapi_resources :answers
   end
   jsonapi_resources :groups do
     jsonapi_relationships
   end
   jsonapi_resources :users do
     jsonapi_resources :password_updates
+    jsonapi_resources :answers
   end
   # end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

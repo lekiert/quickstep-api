@@ -6,4 +6,5 @@ class Test < ApplicationRecord
   # belongs_to :level
   has_many :excercises
   has_and_belongs_to_many :courses
+  has_many :answers
 end
