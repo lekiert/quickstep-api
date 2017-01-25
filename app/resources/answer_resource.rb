@@ -2,7 +2,7 @@ require "brackets_excercise.rb"
 require "choice_excercise.rb"
 
 class AnswerResource < JSONAPI::Resource
-  attributes :answers, :created_at, :results
+  attributes :answers, :created_at, :results, :score
 
   relationship :user, to: :one
   relationship :test, to: :one
@@ -28,7 +28,33 @@ class AnswerResource < JSONAPI::Resource
       end
       result[index] = ex_result
     end
-    puts result
     result
+  end
+
+  # todo: rename silly vars
+  def score
+    overall = 0;
+    max = @model.answers.keys.count
+    answer_results = self.results
+
+    answer_results.each do |index, answer|
+      correct = true
+      answer.each do |index2, instance|
+        instance.each do |index3, instance2|
+          if instance2 == false
+            correct = false
+          end
+        end
+      end
+
+      if correct == true
+        overall = overall + 1
+      end
+    end
+
+    {
+      :max => max,
+      :score => overall
+    }
   end
 end
