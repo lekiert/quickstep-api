@@ -4,11 +4,19 @@ class PasswordUpdatesController < ApplicationResourceController
 
   def create
     parameters = get_parameters
-    PasswordUpdate.update_user_password({
-        :user_id => params[:user_id],
-        :old_password => parameters[:'old-password'],
-        :new_password => parameters[:'new-password']
-    })
+
+    if !current_user.is_admin?
+      PasswordUpdate.update_user_password({
+          :user_id => params[:user_id],
+          :old_password => parameters[:'old-password'],
+          :new_password => parameters[:'new-password']
+      })
+    else
+      PasswordUpdate.update_user_password_without_auth({
+          :user_id => params[:user_id],
+          :new_password => parameters[:'new-password']
+      })
+    end
 
     render json: success_update
   rescue ::Exceptions::AuthenticationError
