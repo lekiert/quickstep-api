@@ -1,6 +1,3 @@
-require "brackets_excercise.rb"
-require "choice_excercise.rb"
-
 class AnswerResource < JSONAPI::Resource
   attributes :answers, :created_at, :results, :score
 
