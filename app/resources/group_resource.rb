@@ -3,6 +3,7 @@ class GroupResource < JSONAPI::Resource
 
   relationship :users, to: :many
   relationship :teachers, to: :many
+  relationship :courses, to: :many
 
   def user_count
     @model.users.count

@@ -31,12 +31,6 @@ l1.courses << course3
 l1.courses << course4
 l1.courses << course5
 
-course.users << u1
-course2.users << u1
-course3.users << u1
-course4.users << u1
-course5.users << u1
-
 t1 = Test.create(code: 'T1_1', name: 'Test 1', description: 'Test 1 description')
 
 course.tests << t1

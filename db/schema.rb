@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125113128) do
+ActiveRecord::Schema.define(version: 20170126090507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170125113128) do
     t.datetime "updated_at",  null: false
     t.index ["level_id"], name: "index_courses_on_level_id", using: :btree
     t.index ["name", "level_id"], name: "index_courses_on_name_and_level_id", using: :btree
+  end
+
+  create_table "courses_groups", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_courses_groups_on_course_id", using: :btree
+    t.index ["group_id"], name: "index_courses_groups_on_group_id", using: :btree
   end
 
   create_table "courses_tests", force: :cascade do |t|
@@ -148,6 +157,8 @@ ActiveRecord::Schema.define(version: 20170125113128) do
   add_foreign_key "answers", "tests"
   add_foreign_key "answers", "users"
   add_foreign_key "courses", "levels"
+  add_foreign_key "courses_groups", "courses"
+  add_foreign_key "courses_groups", "groups"
   add_foreign_key "groups_teachers", "groups"
   add_foreign_key "groups_teachers", "users"
   add_foreign_key "groups_users", "groups"
