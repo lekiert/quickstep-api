@@ -4,7 +4,7 @@ class PasswordUpdatesController < ApplicationResourceController
 
   def create
     parameters = get_parameters
-
+    puts parameters
     if !current_user.is_admin?
       PasswordUpdate.update_user_password({
           :user_id => params[:user_id],

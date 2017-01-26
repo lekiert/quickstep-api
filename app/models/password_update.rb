@@ -25,7 +25,7 @@ class PasswordUpdate
     user_id = params[:user_id]
     new_password = params[:new_password]
     user = User.find(user_id)
-
+    puts params
     user.password = new_password
 
     if !user.valid?
