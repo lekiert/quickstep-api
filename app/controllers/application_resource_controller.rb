@@ -1,6 +1,10 @@
 class ApplicationResourceController < JSONAPI::ResourceController
   include Knock::Authenticable
 
+  def context
+    {current_user: current_user}
+  end
+
   def only_related_user
     if !current_user.is_admin?
       render nothing: true, status: :unauthorized unless current_user.id.to_s == params[:id]
