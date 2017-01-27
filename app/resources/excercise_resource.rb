@@ -7,6 +7,7 @@ class ExcerciseResource < JSONAPI::Resource
   def attachments
      @model.storage_files.map do |file|
       {
+        id: file.id,
         url: file.item,
         type: file.item_content_type
       }
