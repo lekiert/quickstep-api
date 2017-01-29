@@ -1,5 +1,5 @@
 class AnswerResource < JSONAPI::Resource
-  attributes :answers, :created_at, :results, :score, :test_id
+  attributes :answers, :created_at, :results, :score, :test_id, :test_name
 
   relationship :user, to: :one
   relationship :test, to: :one
@@ -18,5 +18,9 @@ class AnswerResource < JSONAPI::Resource
 
   def score
     @model.score
+  end
+
+  def test_name
+    @model.test.name
   end
 end
