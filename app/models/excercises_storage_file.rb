@@ -1,0 +1,2 @@
+class ExcercisesStorageFile < ApplicationRecord
+end

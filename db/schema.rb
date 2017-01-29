@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161123231036) do
+ActiveRecord::Schema.define(version: 20170126090507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "test_id"
+    t.jsonb    "answers"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["test_id"], name: "index_answers_on_test_id", using: :btree
+    t.index ["user_id"], name: "index_answers_on_user_id", using: :btree
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +33,15 @@ ActiveRecord::Schema.define(version: 20161123231036) do
     t.datetime "updated_at",  null: false
     t.index ["level_id"], name: "index_courses_on_level_id", using: :btree
     t.index ["name", "level_id"], name: "index_courses_on_name_and_level_id", using: :btree
+  end
+
+  create_table "courses_groups", force: :cascade do |t|
+    t.integer  "course_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_courses_groups_on_course_id", using: :btree
+    t.index ["group_id"], name: "index_courses_groups_on_group_id", using: :btree
   end
 
   create_table "courses_tests", force: :cascade do |t|
@@ -41,7 +60,7 @@ ActiveRecord::Schema.define(version: 20161123231036) do
 
   create_table "excercises", force: :cascade do |t|
     t.string   "code",           limit: 16
-    t.string   "excercise_type", limit: 32
+    t.string   "excercise_type"
     t.integer  "status",         limit: 2
     t.string   "name"
     t.string   "command"
@@ -49,7 +68,15 @@ ActiveRecord::Schema.define(version: 20161123231036) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.integer  "test_id"
+    t.jsonb    "answers"
     t.index ["code", "status", "name", "test_id"], name: "index_excercises_on_code_and_status_and_name_and_test_id", using: :btree
+  end
+
+  create_table "excercises_storage_files", force: :cascade do |t|
+    t.integer  "storage_file_id"
+    t.integer  "excercise_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "groups", force: :cascade do |t|
@@ -84,6 +111,17 @@ ActiveRecord::Schema.define(version: 20161123231036) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "storage_files", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "item_file_name"
+    t.string   "item_content_type"
+    t.integer  "item_file_size"
+    t.datetime "item_updated_at"
+  end
+
   create_table "tests", force: :cascade do |t|
     t.integer  "level_id"
     t.string   "code"
@@ -116,7 +154,11 @@ ActiveRecord::Schema.define(version: 20161123231036) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "answers", "tests"
+  add_foreign_key "answers", "users"
   add_foreign_key "courses", "levels"
+  add_foreign_key "courses_groups", "courses"
+  add_foreign_key "courses_groups", "groups"
   add_foreign_key "groups_teachers", "groups"
   add_foreign_key "groups_teachers", "users"
   add_foreign_key "groups_users", "groups"
