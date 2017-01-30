@@ -1,6 +1,6 @@
 class UsersController < ApplicationResourceController
   before_action :authenticate_user
-  before_action :only_related_user
+  # before_action :only_related_user
 
   def create(*args)
     result = super(*args)
