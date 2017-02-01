@@ -10,9 +10,11 @@ class AnswersController < ApplicationResourceController
     end
 
     result = super(*args)
+    answer_id = Answer.order(id: :desc).first.id
     DBLogger.info(current_user.id, 'USER_HAS_SUBMITTED_ANSWER', {
       user_id: current_user.id,
-      test_id: test_id
+      test_id: test_id,
+      answer_id: answer_id
     })
     result
   rescue => e
