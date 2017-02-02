@@ -4,6 +4,7 @@ class UserResource < JSONAPI::Resource
   relationship :courses, to: :many
   relationship :password_updates, to: :many
   relationship :groups, to: :many
+  relationship :answers, to: :many
 
   filter :search, apply: ->(records, value, _options) {
     query = value[0]
