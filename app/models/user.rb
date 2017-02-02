@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :groups
 
   has_many :answers
+  has_many :user_logs
 
   def is_admin?
     self.role.upcase == 'ADMIN'

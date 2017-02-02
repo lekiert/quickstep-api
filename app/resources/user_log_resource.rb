@@ -1,7 +1,23 @@
 class UserLogResource < JSONAPI::Resource
-  attributes :user, :action_code, :additional_data, :created_at
+  attributes :user_id, :user_name, :action_code, :additional_data, :created_at
 
   relationship :user, to: :one
+
+  paginator :paged
+
+  def self.records(options = {})
+    context = options[:context]
+    user = context[:current_user]
+    if !user.is_admin?
+      context[:current_user].user_logs
+    else
+      super
+    end
+  end
+
+  def user_name
+    @model.user.first_name + ' ' + @model.user.last_name
+  end
 
   def additional_data
     @model.meta
