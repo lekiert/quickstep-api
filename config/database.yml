@@ -9,14 +9,14 @@ default: &default
   pool: 5
   timeout: 5000
 
-development:
+development: &development
   adapter: postgresql
   encoding: unicode
   database: quickstep
   host: localhost
   pool: 5
-  username: quickstep
-  password: secret
+  username: lukasz
+  password: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,9 +27,8 @@ test:
   database: quickstep_test
   host: localhost
   pool: 5
-  username: quickstep
-  password: secret
+  username: lukasz
+  password: 
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  <<: *development

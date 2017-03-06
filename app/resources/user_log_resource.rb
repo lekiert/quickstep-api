@@ -8,7 +8,7 @@ class UserLogResource < JSONAPI::Resource
   def self.records(options = {})
     context = options[:context]
     user = context[:current_user]
-    if !user.is_admin?
+    if !user.is_admin? && !user.is_supervisor?
       context[:current_user].user_logs
     else
       super

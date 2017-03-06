@@ -5,6 +5,7 @@ class UserResource < JSONAPI::Resource
   relationship :password_updates, to: :many
   relationship :groups, to: :many
   relationship :answers, to: :many
+  relationship :user_logs, to: :many
 
   filter :search, apply: ->(records, value, _options) {
     query = value[0]
@@ -16,7 +17,6 @@ class UserResource < JSONAPI::Resource
   }
 
   filters :last_name, :first_name, :email, :role
-
 
   def created_at
     @model.created_at.strftime("%H:%S, %d.%m.%Y ")

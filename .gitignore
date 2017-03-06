@@ -22,4 +22,4 @@
 .byebug_history
 
 # other
-public/system/storage_files/*
+public/system/storage_files
