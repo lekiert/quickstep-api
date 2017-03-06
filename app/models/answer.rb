@@ -27,21 +27,18 @@ class Answer < ApplicationRecord
   # todo: rename silly vars
   def score
     overall = 0;
-    max = self.answers.keys.count
+    max = 0
     answer_results = self.results
 
-    answer_results.each do |index, answer|
+    answer_results.each do |i, answer|
       correct = true
-      answer.each do |index2, instance|
-        instance.each do |index3, instance2|
-          if instance2 == false
-            correct = false
+      answer.each do |j, sentence|
+        sentence.each do |k, element|
+          max = max + 1
+          if element == true
+            overall = overall + 1
           end
         end
-      end
-
-      if correct == true
-        overall = overall + 1
       end
     end
 
