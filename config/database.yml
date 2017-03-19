@@ -15,8 +15,8 @@ development: &development
   database: quickstep
   host: localhost
   pool: 5
-  username: lukasz
-  password: 
+  username: quickstep_user
+  password: 123
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,8 +27,8 @@ test:
   database: quickstep_test
   host: localhost
   pool: 5
-  username: lukasz
-  password: 
+  username: quickstep_user
+  password: 123
 
 production:
   <<: *development

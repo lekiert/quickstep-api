@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  user: one
-  action_code: MyString
-  meta: 
-
-two:
-  user: two
-  action_code: MyString
-  meta: 
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+#
+# one:
+#   user: one
+#   action_code: MyString
+#   meta:
+#
+# two:
+#   user: two
+#   action_code: MyString
+#   meta:

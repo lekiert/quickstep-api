@@ -3,9 +3,9 @@
 one:
   name: MyString
   description: MyString
-  level: one
+  level_id: 1
 
 two:
   name: MyString
   description: MyString
-  level: two
+  level_id: 1

@@ -26,10 +26,12 @@ class CourseTest < ActiveSupport::TestCase
     assert_not @course.valid?
   end
 
-  test "should be assigned to a level" do
-    @course.level_id = nil
-    assert_not @course.valid?
-    @course.level_id = ""
-    assert_not @course.valid?
-  end
+  # requirement temporarily disabled
+
+  # test "should be assigned to a level" do
+  #   @course.level_id = nil
+  #   assert_not @course.valid?
+  #   @course.level_id = ""
+  #   assert_not @course.valid?
+  # end
 end
