@@ -26,41 +26,31 @@ class PasswordUpdatesController < ApplicationResourceController
   end
 
   def success_update
-    {
-      :data => {
-        :type => "password-update",
-        :attributes => {
-          :result => "OK"
-        }
-      }
-    }
+    password_change_result("OK")
   end
 
   def wrong_password
-    {
-      :data => {
-        :type => "password-update",
-        :attributes => {
-          :result => "WRONG_PASSWORD"
-        }
-      }
-    }
+    password_change_result("WRONG_PASSWORD")
   end
 
   def validation_failed
-    {
-      :data => {
-        :type => "password-update",
-        :attributes => {
-          :result => "VALIDATION_FAILED"
-        }
-      }
-    }
+    password_change_result("VALIDATION_FAILED")
   end
 
   def get_parameters
     params[:data][:attributes].permit(
       [:'user-id', :'old-password', :'new-password']
     ).to_h
+  end
+
+  def password_change_result(result)
+    {
+      :data => {
+        :type => "password-update",
+        :attributes => {
+          :result => result
+        }
+      }
+    }
   end
 end
