@@ -12,11 +12,11 @@ default: &default
 development: &development
   adapter: postgresql
   encoding: unicode
-  database: quickstep
-  host: localhost
+  database: <%= ENV['DB_NAME'] %>
+  host: <%= ENV['DB_HOST'] %>
   pool: 5
-  username: quickstep_user
-  password: 123
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,11 +24,11 @@ development: &development
 test:
   adapter: postgresql
   encoding: unicode
-  database: quickstep_test
-  host: localhost
+  database: <%= ENV['DB_NAME'] %>
+  host: <%= ENV['DB_HOST'] %>
   pool: 5
-  username: quickstep_user
-  password: 123
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
 
 production:
   <<: *development
