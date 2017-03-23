@@ -1,4 +1,7 @@
 class AnswerResource < JSONAPI::Resource
+  
+  paginator :paged
+
   attributes :answers, :created_at, :results, :score, :test_id, :test_name
 
   relationship :user, to: :one
