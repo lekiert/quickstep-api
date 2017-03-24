@@ -26,4 +26,8 @@ class User < ApplicationRecord
     self.role.upcase == 'SUPERVISOR'
   end
 
+  def is_teacher?
+    self.role.upcase == 'TEACHER'
+  end
+
 end
