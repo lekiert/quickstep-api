@@ -15,6 +15,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       'Accept': 'application/vnd.api+json',
     }
   end
-
-
 end

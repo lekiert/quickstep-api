@@ -18,7 +18,7 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
 
   test 'should respond success' do
     get '/courses', headers: authenticated_header
-    
+
     assert_response :success
   end
 
@@ -26,5 +26,19 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
     get '/courses', headers: unauthenticated_header
 
     assert_response :unauthorized
+  end
+
+  test 'should return assigned courses' do
+    course = courses(:one)
+    get '/users/' + course.id.to_s + '/courses', headers: authenticated_header
+
+    assert_response :success
+  end
+
+  test 'should not return unassigned course' do
+    course = courses(:two)
+    get '/courses/' + course.id.to_s, headers: authenticated_header
+
+    assert_response :not_found
   end
 end

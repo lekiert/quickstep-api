@@ -1,11 +1,13 @@
 # # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 #
-# one:
-#   name: MyString
-#   description: MyText
-#   status: 1
-#
-# two:
-#   name: MyString
-#   description: MyText
-#   status: 1
+one:
+  id: 1
+  name: 'Grupa pierwsza'
+  description: 'opis'
+  status: 1
+
+two:
+  id: 2
+  name: 'Grupa druga'
+  description: 'opis 2'
+  status: 1

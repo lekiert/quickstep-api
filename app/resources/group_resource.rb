@@ -8,4 +8,15 @@ class GroupResource < JSONAPI::Resource
   def user_count
     @model.users.count
   end
+
+  def self.records(options = {})
+    context = options[:context]
+    user = context[:current_user]
+
+    if !user.is_admin? && !user.is_supervisor?
+      context[:current_user].groups
+    else
+      super
+    end
+  end
 end
