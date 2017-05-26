@@ -1,5 +1,5 @@
 class UserResource < JSONAPI::Resource
-  attributes :first_name, :last_name, :role, :email, :created_at, :password
+  attributes :first_name, :last_name, :role, :email, :created_at, :password, :overall_score
 
   relationship :courses, to: :many
   relationship :password_updates, to: :many
@@ -23,6 +23,25 @@ class UserResource < JSONAPI::Resource
   end
 
   def self.updatable_fields(context)
-    super - [:password]
+    super - [:password, :overall_score]
+  end
+
+  def overall_score
+    if @model.overall_score == 0
+      @model.set_overall_score
+    end
+
+    @model.overall_score
+  end
+
+  def self.records(options = {})
+    context = options[:context]
+    user = context[:current_user]
+
+    if !user.is_admin? && !user.is_supervisor?
+      User.where(:id => user.id)
+    else
+      super
+    end
   end
 end

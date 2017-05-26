@@ -1,2 +1,0 @@
-class ExcercisesStorageFile < ApplicationRecord
-end

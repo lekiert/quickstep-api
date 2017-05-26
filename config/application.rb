@@ -27,5 +27,8 @@ module QuickstepApi
     # Skip views, helpers and assets when generating a new resource.
     config.autoload_paths << "#{Rails.root}/lib/"
     config.autoload_paths << "#{Rails.root}/lib/logger"
+    config.autoload_paths << "#{Rails.root}/app/lib"
+    config.autoload_paths << "#{Rails.root}/app/lib/lib"
+    config.autoload_paths << "#{Rails.root}/app/lib/lib/logger"
   end
 end

@@ -7,3 +7,7 @@ one:
 two:
   course_id: 2
   user_id: 2
+
+three:
+  course_id: 3
+  user_id: 1

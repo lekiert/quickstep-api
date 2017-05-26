@@ -30,4 +30,31 @@ class User < ApplicationRecord
     self.role.upcase == 'TEACHER'
   end
 
+  def set_overall_score
+    result = 0.0
+    count = 0
+    self.answers.each do |answer|
+      answer_score = answer.score
+      if answer_score.is_a?(Hash)
+        begin
+          _score = answer_score["score"].to_f
+          _max = answer_score["max"].to_f
+
+          if _score.is_a?(Numeric) && _max.is_a?(Numeric) && _max > 0
+            result += _score / _max * 100
+            count += 1
+          end
+        rescue
+        end
+      end
+    end
+
+    if (count > 0)
+      self.overall_score = (result / count).round
+      self.save
+    else
+      self.overall_score = 0
+    end
+  end
+
 end

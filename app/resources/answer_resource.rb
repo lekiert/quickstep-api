@@ -31,6 +31,10 @@ class AnswerResource < JSONAPI::Resource
   end
 
   def score
+    if !@model.score.is_a?(Hash)
+      @model.set_score
+    end
+
     @model.score
   end
 

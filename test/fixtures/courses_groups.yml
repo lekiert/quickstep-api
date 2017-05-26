@@ -14,3 +14,7 @@ one:
 two:
   group_id: 2
   course_id: 2
+
+two:
+  group_id: 1
+  course_id: 3

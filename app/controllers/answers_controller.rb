@@ -3,11 +3,11 @@ class AnswersController < ApplicationResourceController
 
   def create(*args)
     test_id = params[:data][:relationships][:test][:data].permit([:id]).to_h[:id]
-    if !current_user.is_admin?
-      if Answer.where(test_id: test_id, user_id: current_user.id).count >= 2
-        fail JSONAPI::Exceptions::SaveFailed.new()
-      end
-    end
+    # if !current_user.is_admin?
+    #   if Answer.where(test_id: test_id, user_id: current_user.id).count >= 2
+    #     fail JSONAPI::Exceptions::SaveFailed.new()
+    #   end
+    # end
 
     result = super(*args)
     answer_id = Answer.order(id: :desc).first.id

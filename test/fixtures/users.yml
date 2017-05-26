@@ -32,6 +32,16 @@ admin:
   first_name: Test
   last_name: Admin
   email: admin@quickstep.dev
-  password_digest: <%= BCrypt::Password.create("secret_admin", cost: 4) %>
+  password_digest: <%= BCrypt::Password.create("admin", cost: 4) %>
   role: ADMIN
+  status: 1
+
+
+supervisor:
+  id: 5
+  first_name: Test
+  last_name: Supervisor
+  email: supervisor@quickstep.dev
+  password_digest: <%= BCrypt::Password.create("supervisor", cost: 4) %>
+  role: SUPERVISOR
   status: 1

@@ -1,6 +1,14 @@
 class ApplicationResourceController < JSONAPI::ResourceController
   include Knock::Authenticable
 
+  before_action :authenticate_user
+
+  rescue_from ::Exceptions::NotAuthorizedError, with: :reject_forbidden_request
+  
+  def reject_forbidden_request
+    render json: {error: 'Forbidden'}, :status => 403
+  end
+
   def context
     {current_user: current_user}
   end

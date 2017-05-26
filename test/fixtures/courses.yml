@@ -11,3 +11,9 @@ two:
   name: Kurs 2
   description: kurs 2
   level_id: 1
+
+three:
+  id: 3
+  name: Kurs 3
+  description: kurs 3
+  level_id: 1

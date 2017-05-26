@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   level_id: 1
   name: MyString
   description: MyText
 
 two:
+  id: 2
   level_id: 1
   name: MyString
   description: MyText

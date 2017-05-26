@@ -1,5 +1,7 @@
+require_relative "../lib/lib/logger/base_logger"
+require_relative "../lib/lib/logger/db_logger"
+
 class UsersController < ApplicationResourceController
-  before_action :authenticate_user
   # before_action :only_related_user
 
   def create(*args)
@@ -15,9 +17,13 @@ class UsersController < ApplicationResourceController
     user = User.find(params[:id])
     result = super(*args)
     DBLogger.info(current_user.id, 'USER_HAS_BEEN_UPDATED', {
-      first_name: current_user.first_name,
-      last_name: current_user.last_name
-    }, { :first_name => user.first_name, :last_name => user.last_name })
+      admin: {
+        id: current_user.id,
+        first_name: current_user.first_name,
+        last_name: current_user.last_name
+      },
+      target: { id: user.id, :first_name => user.first_name, :last_name => user.last_name }
+    })
     result
   end
 

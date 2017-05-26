@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :groups
   post 'user_token' => 'user_token#create'
   match 'user_token' => 'user_token#create', via: :options
-  jsonapi_resources :excercises
+  jsonapi_resources :exercises
   jsonapi_resources :courses
   jsonapi_resources :answers
   jsonapi_resources :tests
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   jsonapi_resources :storage_files
   jsonapi_resources :tests do
     jsonapi_relationships
-    jsonapi_resources :excercises
+    jsonapi_resources :exercises
     jsonapi_resources :answers
   end
   jsonapi_resources :groups do
