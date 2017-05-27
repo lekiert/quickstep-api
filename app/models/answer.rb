@@ -21,14 +21,10 @@ class Answer < ApplicationRecord
           ex_result = ChoiceExercise.check(answer, exercise.answers)
 
       end
-      puts "=============================="
-      puts ex_result
       # ex_result.map { |n| n[:score] *= exercise[:point_factor] }
       ex_result.each do |k, v|
         ex_result[k][:score] *= exercise[:point_factor]
       end
-      puts ex_result
-      puts "=============================="
       result[index] = ex_result
     end
     result
