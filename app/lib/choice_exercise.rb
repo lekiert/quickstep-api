@@ -1,33 +1,31 @@
 class ChoiceExercise < BaseEvaluator
   def self.check(given, correct)
     result = {}
-    correct.each do |index, sentence|
-      if !result[index]
-        result[index] = {
+    correct.each do |sentenceId, sentence|
+      if !result[sentenceId]
+        result[sentenceId] = {
           :score => 0,
           :results => {}
         }
       end
 
-      sentence.each do |instance|
-        if !result[index][:results][instance['text']]
-          result[index][:results][instance['text']] = false
+      sentence.each do |choice|
+        if !result[sentenceId][:results][choice['text']]
+          result[sentenceId][:results][choice['text']] = false
 
-          if instance['correct'] == true and given[index].include? instance['text']
-            result[index][:results][instance['text']] = true
-            # result[index][:score] += 1
-          elsif instance['correct'] == false and !given[index].include? instance['text']
-            result[index][:results][instance['text']] = true
-            # result[index][:score] += 1
+          if choice['correct'] == true and given[sentenceId].include? choice['text']
+            result[sentenceId][:results][choice['text']] = true
+          elsif choice['correct'] == false and !given[sentenceId].include? choice['text']
+            result[sentenceId][:results][choice['text']] = true
           end
         end
       end
 
       correct = 1
-      result[index][:results].each do |r, v|
+      result[sentenceId][:results].each do |r, v|
         correct = 0 if v == false
       end
-      result[index][:score] += correct
+      result[sentenceId][:score] += correct
     end
 
     result

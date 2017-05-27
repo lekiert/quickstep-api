@@ -1,21 +1,30 @@
 class BracketsExercise < BaseEvaluator
   def self.check(given, correct)
     result = {}
-    correct.each do |index, sentence|
-      result[index] = {
+    correct.each do |sentenceId, sentence|
+      result[sentenceId] = {
         :score => 0,
         :results => {}
       }
 
-      sentence.each do |index2, instance|
-        if !result[index][:results][index2]
-          result[index][:results][index2] = false
+      sentence.each do |bracketId, bracket|
+        if !result[sentenceId][:results][bracketId]
+          result[sentenceId][:results][bracketId] = false
         end
 
-        if correct[index][index2].split(',').include? given[index][index2].strip
-          result[index][:results][index2] = true
-          result[index][:score] += 1
+        if correct[sentenceId][bracketId].split(',').include? given[sentenceId][bracketId].strip
+          result[sentenceId][:results][bracketId] = true
+
         end
+      end
+
+      should_pass = true
+      result[sentenceId][:results].each do |k, v|
+        should_pass = result[sentenceId][:results][k]
+      end
+
+      if should_pass == true
+        result[sentenceId][:score] += 1
       end
     end
 
