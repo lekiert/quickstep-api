@@ -38,7 +38,7 @@ class UserResource < JSONAPI::Resource
     context = options[:context]
     user = context[:current_user]
 
-    if !user.is_admin? && !user.is_supervisor?
+    if !user.is_admin? && !user.is_supervisor? && !user.is_teacher?
       User.where(:id => user.id)
     else
       super

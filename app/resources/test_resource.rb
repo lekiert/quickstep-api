@@ -11,7 +11,7 @@ class TestResource < JSONAPI::Resource
     context = options[:context]
     user = context[:current_user]
 
-    if !user.is_admin? && !user.is_supervisor?
+    if !user.is_admin? && !user.is_supervisor? && !user.is_teacher?
       ids = []
       tests = []
       groups = user.groups.includes(courses: :tests)

@@ -10,7 +10,9 @@ class AnswerResource < JSONAPI::Resource
   def self.records(options = {})
     context = options[:context]
     user = context[:current_user]
+    puts user
     if !user.is_admin? && !user.is_supervisor? && !user.is_teacher?
+      puts 'ISAKSDJFHAKJDSFH'
       context[:current_user].answers
     else
       super
