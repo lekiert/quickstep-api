@@ -11,8 +11,22 @@ class AnswerResource < JSONAPI::Resource
     context = options[:context]
     user = context[:current_user]
     puts user
-    if !user.is_admin? && !user.is_supervisor? && !user.is_teacher?
-      puts 'ISAKSDJFHAKJDSFH'
+    if user.is_teacher?
+      teacher = Teacher.find(user.id)
+      groups = teacher.groups.includes(users: :answers)
+      ids = []
+      
+      for group in groups
+        for _user in group.users
+          for t in _user.answers
+            ids << t.id
+          end
+        end
+      end
+
+      Answer.where(:id => ids)
+
+    elsif !user.is_admin? && !user.is_supervisor?
       context[:current_user].answers
     else
       super
