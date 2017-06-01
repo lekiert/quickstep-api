@@ -9,14 +9,6 @@ class UserLogResource < JSONAPI::Resource
     context = options[:context]
     user = context[:current_user]
     if !user.is_admin? && !user.is_supervisor?
-      puts "AAAAAAAAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAAAAAAAA"
-      puts "AAAAAAAAAAAAAAAAAAAAA"
       context[:current_user].user_logs
     else
       super
