@@ -1,24 +1,29 @@
-# README
+# Quickstep API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Prerequisites
 
-Things you may want to cover:
+* Ruby >= 2.3.1
+* Bundler gem >= 1.13.6 (should work on older releases, but untested)
+* Rails gem >= 5.0.0.1
+* PostgreSQL >= 9.6 (should work on older releases, but untested)
 
-* Ruby version
+Installation of other packages may be necessary. If Rails refuses to cooperate with Postgres, please take a look here:
+https://stackoverflow.com/questions/3116015/how-to-install-postgresqls-pg-gem-on-ubuntu
 
-* System dependencies
+## Setting up
 
-* Configuration
+Just a standard Rails application setup.
 
-* Database creation
+1. Clone the repo
+2. Set database connection params in the .env file
+2. Run `bundle install`
+3. Run `rails db:setup` and then `rails:db:migrate` (set RAILS_ENV if necessary)
+4. Run `rails server`
 
-* Database initialization
+## Testing
 
-* How to run the test suite
+`rails test`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contact
 
-* Deployment instructions
-
-* ...
+In case of any issues feel free to contact me: ekiert [dot] lukasz [at] gmail [dot] com
