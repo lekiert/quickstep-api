@@ -8,7 +8,6 @@ class ChoiceExercise < BaseEvaluator
           :results => {}
         }
       end
-
       sentence.each do |choice|
         if !result[sentenceId][:results][choice['text']]
           result[sentenceId][:results][choice['text']] = false
@@ -20,7 +19,6 @@ class ChoiceExercise < BaseEvaluator
           end
         end
       end
-
       correct = 1
       result[sentenceId][:results].each do |r, v|
         correct = 0 if v == false
