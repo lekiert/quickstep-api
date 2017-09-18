@@ -1,4 +1,4 @@
-class Exercise < ApplicationRecord
+class Excercise < ApplicationRecord
   validates :code, presence: true, length: { minimum: 1, maximum: 15 }
   validates :name, presence: true, length: { minimum: 3, maximum: 255 }
   validates :command, presence: true, length: { minimum: 3, maximum: 255 }

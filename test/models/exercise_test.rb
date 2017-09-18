@@ -1,50 +1,50 @@
 require 'test_helper'
 
-class ExerciseTest < ActiveSupport::TestCase
+class ExcerciseTest < ActiveSupport::TestCase
   def setup
     @test = Test.create(name: "Test",
                      description: "test description",
                      code: "A")
-    @exercise = Exercise.new(name: "Test",
+    @excercise = Excercise.new(name: "Test",
                                       command: "test command",
                                       code: "A",
                                       status: 1)
-    @test.exercises << @exercise
+    @test.excercises << @excercise
   end
 
   test "should be valid" do
-    assert @exercise.valid?
+    assert @excercise.valid?
   end
 
   test "should have a name" do
-    @exercise.name = ""
-    assert_not @exercise.valid?
+    @excercise.name = ""
+    assert_not @excercise.valid?
   end
 
   test "should have a command" do
-    @exercise.command = ""
-    assert_not @exercise.valid?
+    @excercise.command = ""
+    assert_not @excercise.valid?
   end
 
   test "should have a code" do
-    @exercise.code = ""
-    assert_not @exercise.valid?
+    @excercise.code = ""
+    assert_not @excercise.valid?
   end
 
   test "should have a valid status" do
-    @exercise.status = ""
-    assert_not @exercise.valid?
-    @exercise.status = "test"
-    assert_not @exercise.valid?
-    @exercise.status = "2"
-    assert_not @exercise.valid?
-    @exercise.status = 2
-    assert_not @exercise.valid?
-    @exercise.status = -1
-    assert @exercise.valid?
-    @exercise.status = 0
-    assert @exercise.valid?
-    @exercise.status = 1
-    assert @exercise.valid?
+    @excercise.status = ""
+    assert_not @excercise.valid?
+    @excercise.status = "test"
+    assert_not @excercise.valid?
+    @excercise.status = "2"
+    assert_not @excercise.valid?
+    @excercise.status = 2
+    assert_not @excercise.valid?
+    @excercise.status = -1
+    assert @excercise.valid?
+    @excercise.status = 0
+    assert @excercise.valid?
+    @excercise.status = 1
+    assert @excercise.valid?
   end
 end

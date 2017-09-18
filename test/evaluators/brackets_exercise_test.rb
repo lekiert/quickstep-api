@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class BracketsExerciseTest < ActiveSupport::TestCase
+class BracketsExcerciseTest < ActiveSupport::TestCase
   def setup
-    @evaluator = BracketsExercise
+    @evaluator = BracketsExcercise
   end
 
   test "should return all correct" do

@@ -4,7 +4,7 @@ class TestResource < JSONAPI::Resource
   attributes :code, :name, :description, :last_score
 
   relationship :courses, to: :many
-  relationship :exercises, to: :many
+  relationship :excercises, to: :many
   relationship :answers, to: :many
 
   def self.records(options = {})

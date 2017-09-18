@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20170526000651) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "exercises", id: :integer, default: -> { "nextval('excercises_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "excercises", id: :integer, default: -> { "nextval('excercises_id_seq'::regclass)" }, force: :cascade do |t|
     t.string   "code",          limit: 16
-    t.string   "exercise_type"
+    t.string   "excercise_type"
     t.integer  "status",        limit: 2
     t.string   "name"
     t.string   "command"
@@ -74,9 +74,9 @@ ActiveRecord::Schema.define(version: 20170526000651) do
     t.index ["code", "status", "name", "test_id"], name: "index_excercises_on_code_and_status_and_name_and_test_id", using: :btree
   end
 
-  create_table "exercises_storage_files", id: :integer, default: -> { "nextval('excercises_storage_files_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "excercises_storage_files", id: :integer, default: -> { "nextval('excercises_storage_files_id_seq'::regclass)" }, force: :cascade do |t|
     t.integer  "storage_file_id"
-    t.integer  "exercise_id"
+    t.integer  "excercise_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
