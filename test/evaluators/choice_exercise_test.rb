@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class ChoiceExcerciseTest < ActiveSupport::TestCase
+class ChoiceExerciseTest < ActiveSupport::TestCase
   def setup
-    @evaluator = ChoiceExcercise
+    @evaluator = ChoiceExercise
   end
 
   test "should match as wrong" do

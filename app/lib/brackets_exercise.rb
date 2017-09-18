@@ -1,4 +1,4 @@
-class BracketsExcercise < BaseEvaluator
+class BracketsExercise < BaseEvaluator
   def self.check(given, correct)
     result = {}
     correct.each do |sentenceId, sentence|

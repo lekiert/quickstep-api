@@ -4,7 +4,7 @@ class Test < ApplicationRecord
   validates :description, presence: true, length: { minimum: 1 }
 
   # belongs_to :level
-  has_many :excercises
+  has_many :exercises
   has_and_belongs_to_many :courses
   has_many :answers
 end

@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'json'
 
-class ExcercisesControllerTest < ActionDispatch::IntegrationTest
+class ExercisesControllerTest < ActionDispatch::IntegrationTest
   def authenticated_header
     token = Knock::AuthToken.new(payload: { sub: users(:one).id }).token
 
@@ -18,13 +18,13 @@ class ExcercisesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should respond success' do
-    get '/excercises', headers: authenticated_header
+    get '/exercises', headers: authenticated_header
 
     assert_response :success
   end
 
   test 'should respond unauthorized' do
-    get '/excercises', headers: unauthenticated_header
+    get '/exercises', headers: unauthenticated_header
 
     assert_response :unauthorized
   end

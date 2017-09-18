@@ -11,19 +11,19 @@ class Answer < ApplicationRecord
 
     self.answers.each do |index, answer|
       ex_result = {}
-      excercise = Excercise.find(index)
+      exercise = Exercise.find(index)
 
-      case excercise.excercise_type
+      case exercise.exercise_type
         when 'BRACKETS'
-          ex_result = BracketsExcercise.check(answer, excercise.answers)
+          ex_result = BracketsExercise.check(answer, exercise.answers)
 
         when 'CHOICE'
-          ex_result = ChoiceExcercise.check(answer, excercise.answers)
+          ex_result = ChoiceExercise.check(answer, exercise.answers)
 
       end
-      # ex_result.map { |n| n[:score] *= excercise[:point_factor] }
+      # ex_result.map { |n| n[:score] *= exercise[:point_factor] }
       ex_result.each do |k, v|
-        ex_result[k][:score] *= excercise[:point_factor]
+        ex_result[k][:score] *= exercise[:point_factor]
       end
       result[index] = ex_result
     end
@@ -43,7 +43,7 @@ class Answer < ApplicationRecord
       max = 0
       answer_results = self.results
       answer_results.each do |i, answer|
-        ex = Excercise.find(i)
+        ex = Exercise.find(i)
         correct = true
         answer.each do |j, sentence|
           max = max + ex[:point_factor]

@@ -1,4 +1,4 @@
-class ChoiceExcercise < BaseEvaluator
+class ChoiceExercise < BaseEvaluator
   def self.check(given, correct)
     result = {}
     correct.each do |sentenceId, sentence|

@@ -1,8 +1,8 @@
-class CreateExcercises < ActiveRecord::Migration[5.0]
+class CreateExercises < ActiveRecord::Migration[5.0]
   def change
-    create_table :excercises do |t|
+    create_table :exercises do |t|
       t.string :code, :limit => 16
-      t.string :excercise_type, :limit => 32
+      t.string :exercise_type, :limit => 32
       t.integer :status, :limit => 1
       t.string :name
       t.string :command
