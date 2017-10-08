@@ -8,7 +8,7 @@ class CourseResource < JSONAPI::Resource
     context = options[:context]
     user = context[:current_user]
 
-    if !user.is_admin? && !user.is_supervisor?
+    if !user.is_admin? && !user.is_supervisor? && !user.is_teacher?
       ids = user.groups.map { |g| g.id }
       courses_ids = CoursesGroup.where(group_id: ids).map { |cg| cg.course_id }
       Course.where(id: courses_ids)
